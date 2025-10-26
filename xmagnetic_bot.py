@@ -1,12 +1,12 @@
+import os
 import requests
 import time
 import json
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 
-# === KONFIGURASI ===
-BOT_TOKEN = "8469106005:AAHVSzYclvRTjIsThrT9BGyEJ4a4YHMHqSQ"
-CHANNEL_ID = "@ingatsolat"  # atau ID channel
-CHECK_INTERVAL = 60  # detik
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHANNEL_ID = os.getenv("CHANNEL_ID")
+CHECK_INTERVAL = 60
 
 # === INISIALISASI BOT ===
 bot = Bot(token=BOT_TOKEN)
