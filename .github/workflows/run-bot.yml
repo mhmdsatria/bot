@@ -1,0 +1,25 @@
+name: XMagnetic Bot Auto Run
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # jalan tiap 15 menit
+  workflow_dispatch:        # bisa jalan manual juga
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt || true
+
+      - name: Jalankan bot
+        run: python xmagnetic_bot.py
